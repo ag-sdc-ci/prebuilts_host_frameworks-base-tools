@@ -1,0 +1,7 @@
+#!/bin/bash
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+JAR_FILE="${SCRIPT_DIR}/../lib64/lockedregioncodeinjection.jar"
+if [ ! -f "$JAR_FILE" ]; then
+    JAR_FILE="${SCRIPT_DIR}/lockedregioncodeinjection.jar"
+fi
+exec java -jar "$JAR_FILE" "$@"

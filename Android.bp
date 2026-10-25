@@ -1,0 +1,67 @@
+// Prebuilt shadow for frameworks/base host tools
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+cc_prebuilt_binary {
+    name: "protoc-gen-javastream",
+    srcs: ["bin/protoc-gen-javastream"],
+    check_elf_files: false,
+    prefer: true,
+    host_supported: true,
+    device_supported: false,
+}
+
+cc_prebuilt_binary {
+    name: "protoc-gen-cppstream",
+    srcs: ["bin/protoc-gen-cppstream"],
+    check_elf_files: false,
+    prefer: true,
+    host_supported: true,
+    device_supported: false,
+}
+
+cc_prebuilt_binary {
+    name: "pbkdf2gen",
+    srcs: ["bin/pbkdf2gen"],
+    check_elf_files: false,
+    prefer: true,
+    host_supported: true,
+    device_supported: false,
+}
+
+cc_prebuilt_binary {
+    name: "validatekeymaps",
+    srcs: ["bin/validatekeymaps"],
+    check_elf_files: false,
+    prefer: true,
+    host_supported: true,
+    device_supported: false,
+}
+
+cc_prebuilt_binary {
+    name: "incident-section-gen",
+    srcs: ["bin/incident-section-gen"],
+    check_elf_files: false,
+    prefer: true,
+    host_supported: true,
+    device_supported: false,
+}
+
+sh_binary_host {
+    name: "lockedregioncodeinjection",
+    src: "bin/lockedregioncodeinjection",
+    data: ["lib64/lockedregioncodeinjection.jar"],
+}
+
+sh_binary_host {
+    name: "sdkparcelables",
+    src: "bin/sdkparcelables",
+    data: ["lib64/sdkparcelables.jar"],
+}
+
+sh_binary_host {
+    name: "codegen_cli",
+    src: "bin/codegen_cli",
+    data: ["lib64/codegen_cli.jar"],
+}
