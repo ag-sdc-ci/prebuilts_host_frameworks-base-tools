@@ -70,3 +70,7 @@ java_library {
     host_supported: true,
 }
 
+java_plugin {
+    name: "ImmutabilityAnnotationProcessor",
+}
+
