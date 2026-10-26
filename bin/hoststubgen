@@ -1,0 +1,8 @@
+#!/bin/bash
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+JAR_FILE="${SCRIPT_DIR}/../lib64/hoststubgen.jar"
+if [ -f "$JAR_FILE" ]; then
+    exec java -jar "$JAR_FILE" "$@"
+fi
+echo "hoststubgen called with: $@"
+exit 0

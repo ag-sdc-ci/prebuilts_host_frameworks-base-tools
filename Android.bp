@@ -63,6 +63,16 @@ sh_binary_host {
     src: "bin/codegen_cli",
 }
 
+sh_binary_host {
+    name: "protologtool",
+    src: "bin/protologtool",
+}
+
+sh_binary_host {
+    name: "hoststubgen",
+    src: "bin/hoststubgen",
+}
+
 java_library {
     name: "ImmutabilityAnnotation",
     srcs: ["src/android/processor/immutability/Immutable.java"],
