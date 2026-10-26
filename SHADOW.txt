@@ -1,0 +1,6 @@
+shadow prebuilt repo: frameworks-base-tools (host)
+  upstream: platform/frameworks/base/tools
+  branch: universal
+  source-baseline: 17.0.0 (main)
+  deliverables: bin/{protoc-gen-javastream,protoc-gen-cppstream,pbkdf2gen,validatekeymaps,incident-section-gen,lockedregioncodeinjection,sdkparcelables,codegen_cli}, ImmutabilityAnnotation
+  date: 2026-10-26

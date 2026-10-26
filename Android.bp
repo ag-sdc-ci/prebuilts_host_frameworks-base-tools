@@ -62,3 +62,11 @@ sh_binary_host {
     name: "codegen_cli",
     src: "bin/codegen_cli",
 }
+
+java_library {
+    name: "ImmutabilityAnnotation",
+    srcs: ["src/android/processor/immutability/Immutable.java"],
+    sdk_version: "core_current",
+    host_supported: true,
+}
+
