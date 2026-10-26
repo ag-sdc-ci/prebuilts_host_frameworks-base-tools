@@ -51,17 +51,14 @@ cc_prebuilt_binary {
 sh_binary_host {
     name: "lockedregioncodeinjection",
     src: "bin/lockedregioncodeinjection",
-    data: ["lib64/lockedregioncodeinjection.jar"],
 }
 
 sh_binary_host {
     name: "sdkparcelables",
     src: "bin/sdkparcelables",
-    data: ["lib64/sdkparcelables.jar"],
 }
 
 sh_binary_host {
     name: "codegen_cli",
     src: "bin/codegen_cli",
-    data: ["lib64/codegen_cli.jar"],
 }
