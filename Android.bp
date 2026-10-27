@@ -37,6 +37,19 @@ cc_prebuilt_binary {
     prefer: true,
     host_supported: true,
     device_supported: false,
+    shared_libs: [
+        "libbinder",
+        "libvintf",
+        "libbase",
+        "liblog",
+        "libutils",
+        "libcutils",
+    ],
+    target: {
+        host: {
+            rpath: "/opt/android/system/core/lib64",
+        },
+    },
 }
 
 cc_prebuilt_binary {
