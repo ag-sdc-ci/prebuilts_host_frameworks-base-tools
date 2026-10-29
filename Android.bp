@@ -45,11 +45,7 @@ cc_prebuilt_binary {
         "libutils",
         "libcutils",
     ],
-    target: {
-        host: {
-            rpath: "/opt/android/system/core/lib64",
-        },
-    },
+
 }
 
 cc_prebuilt_binary {
