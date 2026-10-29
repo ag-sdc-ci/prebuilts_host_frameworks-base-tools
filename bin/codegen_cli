@@ -1,7 +1,24 @@
 #!/bin/bash
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-JAR_FILE="${SCRIPT_DIR}/../lib64/codegen_cli.jar"
-if [ ! -f "$JAR_FILE" ]; then
-    JAR_FILE="${SCRIPT_DIR}/codegen_cli.jar"
+CANDIDATES=(
+    "${SCRIPT_DIR}/../lib64/codegen_cli.jar"
+    "${SCRIPT_DIR}/codegen_cli.jar"
+    "${SCRIPT_DIR}/../../../../prebuilts/host/frameworks-base-tools/lib64/codegen_cli.jar"
+    "prebuilts/host/frameworks-base-tools/lib64/codegen_cli.jar"
+    "${ANDROID_BUILD_TOP}/prebuilts/host/frameworks-base-tools/lib64/codegen_cli.jar"
+)
+
+JAR_FILE=""
+for c in "${CANDIDATES[@]}"; do
+    if [ -f "$c" ]; then
+        JAR_FILE="$c"
+        break
+    fi
+done
+
+if [ -z "$JAR_FILE" ]; then
+    echo "codegen_cli: cannot find codegen_cli.jar" >&2
+    exit 1
 fi
+
 exec java -cp "$JAR_FILE" com.android.codegen.MainKt "$@"

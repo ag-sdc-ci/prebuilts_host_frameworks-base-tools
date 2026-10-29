@@ -1,7 +1,24 @@
 #!/bin/bash
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-JAR_FILE="${SCRIPT_DIR}/../lib64/lockedregioncodeinjection.jar"
-if [ ! -f "$JAR_FILE" ]; then
-    JAR_FILE="${SCRIPT_DIR}/lockedregioncodeinjection.jar"
+CANDIDATES=(
+    "${SCRIPT_DIR}/../lib64/lockedregioncodeinjection.jar"
+    "${SCRIPT_DIR}/lockedregioncodeinjection.jar"
+    "${SCRIPT_DIR}/../../../../prebuilts/host/frameworks-base-tools/lib64/lockedregioncodeinjection.jar"
+    "prebuilts/host/frameworks-base-tools/lib64/lockedregioncodeinjection.jar"
+    "${ANDROID_BUILD_TOP}/prebuilts/host/frameworks-base-tools/lib64/lockedregioncodeinjection.jar"
+)
+
+JAR_FILE=""
+for c in "${CANDIDATES[@]}"; do
+    if [ -f "$c" ]; then
+        JAR_FILE="$c"
+        break
+    fi
+done
+
+if [ -z "$JAR_FILE" ]; then
+    echo "lockedregioncodeinjection: cannot find lockedregioncodeinjection.jar" >&2
+    exit 1
 fi
+
 exec java -jar "$JAR_FILE" "$@"
