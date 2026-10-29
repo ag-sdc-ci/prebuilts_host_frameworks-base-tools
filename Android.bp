@@ -97,3 +97,12 @@ java_plugin {
     name: "ImmutabilityAnnotationProcessor",
 }
 
+java_import_host {
+    name: "error_prone_android_framework_lib",
+    jars: ["lib64/error_prone_android_framework.jar"],
+}
+
+java_plugin {
+    name: "error_prone_android_framework",
+    static_libs: ["error_prone_android_framework_lib"],
+}
